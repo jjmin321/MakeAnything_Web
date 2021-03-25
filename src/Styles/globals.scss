@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('/assets/fonts/NanumSquareRoundOTFB.otf')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'NanumSquareRound' !important;
+}
