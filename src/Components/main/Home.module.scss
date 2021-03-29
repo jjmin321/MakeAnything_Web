@@ -1,0 +1,66 @@
+.home {
+    display: flex;
+    color: yellow;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.Banner {
+    display: flex;
+    height: 30vh;
+    background-image: url("/assets/images/banner.png");
+    &-Home {
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+    &-Login {
+        padding: 1.5rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    &-Middle {
+        color: gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto auto auto auto;
+        &-Text {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+    
+        &-Title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        &-Search {
+            display: flex;
+            width: 30rem;
+            height: 3rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            align-items: center;
+            padding: 1rem;
+            &-Icon {
+                margin: auto 0 auto auto;
+
+            }
+        }
+    }
+}
+
+.Card {
+    height: 20vh;
+    background-color: yellowgreen;
+    &-Description {
+        height: 5vh;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        color:gray;
+    }
+}

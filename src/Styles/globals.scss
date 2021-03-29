@@ -7,9 +7,10 @@
 }
 
 html,
-body {
-  padding: 0;
-  margin: 0;
+body,
+#root {
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -18,6 +19,8 @@ a {
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'NanumSquareRound' !important;
 }
