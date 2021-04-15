@@ -1,0 +1,24 @@
+.Card {
+    @media screen and (max-width: 878px) {
+        flex-direction: column;
+    }
+    display:flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    &-Description {
+        height: 5vh;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        color:gray;
+    }
+    &-Item {
+        @media screen and (max-width: 878px) {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        height: 18vh;
+        width: 15vw;
+        border-radius: 0.5rem;
+    }
+}
