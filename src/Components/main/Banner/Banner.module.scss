@@ -49,18 +49,19 @@
             border-radius: 0.5rem;
             align-items: center;
             padding: 1rem;
+            margin-bottom: 1rem;
             &-Text {
+                width: 90%;
                 display: block;
                 font-size: 1rem;
-                width: 90%;
                 border: none;
                 outline: none;
             }
             &-Button {
+                width: 10%;
                 background-color: white;
                 border: none;
                 outline: none;
-                margin: auto 0 auto auto;
             }
         }
     }
