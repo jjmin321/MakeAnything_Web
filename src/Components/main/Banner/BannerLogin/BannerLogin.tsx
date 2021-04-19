@@ -1,13 +1,52 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import axios from "axios";
+import swal from "sweetalert2";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./BannerLogin.module.scss"
+import "./BannerLogin.module.scss";
 
 const BannerLogin = () => {
   const [show, setShow] = useState(false);
+  const [id, setId] = useState<String>();
+  const [pw, setPw] = useState<String>();
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+  const handleKeyPress = (e) => {
+    if (e.key == "Enter") {
+      handleLogin();
+    }
+  };
+  const handleLogin = () =>
+    axios
+      .post("http://localhost:8080/user/signIn", {
+        id: id,
+        pw: pw,
+      })
+      .then((Response) => {
+        swal.fire({
+          icon: "success",
+          title: Response.data.message,
+        });
+        setTimeout(() => {
+          setShow(false);
+        }, 1000);
+        // cookies.set("accessToken", Response.data.accessToken, { expires: 1 });
+      })
+      .catch((error) => {
+        console.log(error);
+        swal.fire({
+          icon: "warning",
+          title: error.response.data.message,
+          timer: 1500,
+        });
+      });
+  const handleChangeId = (e) => {
+    setId(e.target.value);
+  };
+  const handleChangePw = (e) => {
+    setPw(e.target.value);
+  };
 
   return (
     <>
@@ -30,14 +69,20 @@ const BannerLogin = () => {
                 <input
                   type="text"
                   placeholder="아이디를 입력해주세요."
+                  onChange={handleChangeId}
+                  onKeyPress={handleKeyPress}
                   autoFocus
                 />
               </div>
               <div className="login-modal-box-form">
                 <span>비밀번호</span>
-                <input type="password" placeholder="비밀번호를 입력해주세요." />
+                <input
+                  type="password"
+                  placeholder="비밀번호를 입력해주세요."
+                  onChange={handleChangePw}
+                  onKeyPress={handleKeyPress} 
+                />
               </div>
-              <button className="login-modal-box-submit">로그인</button>
             </div>
           </div>
         </Modal.Body>
@@ -45,7 +90,10 @@ const BannerLogin = () => {
           <Button variant="secondary" onClick={handleClose}>
             닫기
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={handleLogin}
+          >
             로그인
           </Button>
         </Modal.Footer>
