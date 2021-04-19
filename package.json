@@ -11,12 +11,14 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "next": "^10.0.9",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "sweetalert2": "^10.16.4"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.1.3",
