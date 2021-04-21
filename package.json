@@ -13,6 +13,8 @@
     "@zeit/next-typescript": "^1.1.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
     "next": "^10.0.9",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",

@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 import swal from "sweetalert2";
+import cookies from 'js-cookie'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BannerLogin.module.scss";
+
+const API = "http://localhost:8080/user/signIn";
 
 const BannerLogin = () => {
   const [show, setShow] = useState(false);
@@ -17,36 +20,47 @@ const BannerLogin = () => {
       handleLogin();
     }
   };
-  const handleLogin = () =>
-    axios
-      .post("http://localhost:8080/user/signIn", {
-        id: id,
-        pw: pw,
-      })
-      .then((Response) => {
-        swal.fire({
-          icon: "success",
-          title: Response.data.message,
-        });
-        setTimeout(() => {
-          setShow(false);
-        }, 1000);
-        // cookies.set("accessToken", Response.data.accessToken, { expires: 1 });
-      })
-      .catch((error) => {
-        console.log(error);
-        swal.fire({
-          icon: "warning",
-          title: error.response.data.message,
-          timer: 1500,
-        });
-      });
+
   const handleChangeId = (e) => {
     setId(e.target.value);
   };
   const handleChangePw = (e) => {
     setPw(e.target.value);
   };
+  const handleLogin = () =>
+    axios
+      .post(`${API}`, {
+        id: id,
+        pw: pw,
+      })
+      .then((Response) => {
+        if (Response.data.status == 200) {
+          swal.fire({
+            icon: "success",
+            title: Response.data.message,
+            timer: 1000,
+          });
+          setTimeout(() => {
+            setShow(false);
+          }, 1000);
+        } else {
+          swal.fire({
+            icon: "error",
+            title: Response.data.message,
+            timer: 1000,
+          });
+        }
+        cookies.set("accessToken", Response.data.data.accessToken, { expires: 1 });
+        cookies.set("refreshToken", Response.data.data.refreshToken, { expires: 24 * 30})
+      })
+      .catch((error) => {
+        console.log(error);
+        swal.fire({
+          icon: "warning",
+          title: "아이디와 비밀번호를 모두 입력해주세요",
+          timer: 1000,
+        });
+      });
 
   return (
     <>
@@ -71,7 +85,6 @@ const BannerLogin = () => {
                   placeholder="아이디를 입력해주세요."
                   onChange={handleChangeId}
                   onKeyPress={handleKeyPress}
-                  autoFocus
                 />
               </div>
               <div className="login-modal-box-form">
@@ -80,7 +93,7 @@ const BannerLogin = () => {
                   type="password"
                   placeholder="비밀번호를 입력해주세요."
                   onChange={handleChangePw}
-                  onKeyPress={handleKeyPress} 
+                  onKeyPress={handleKeyPress}
                 />
               </div>
             </div>
@@ -90,10 +103,7 @@ const BannerLogin = () => {
           <Button variant="secondary" onClick={handleClose}>
             닫기
           </Button>
-          <Button
-            variant="primary"
-            onClick={handleLogin}
-          >
+          <Button variant="primary" onClick={handleLogin}>
             로그인
           </Button>
         </Modal.Footer>
