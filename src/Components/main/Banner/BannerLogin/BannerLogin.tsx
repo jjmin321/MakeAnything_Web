@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 import swal from "sweetalert2";
-import cookies from 'js-cookie'
+import cookies from "js-cookie";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BannerLogin.module.scss";
 
@@ -14,7 +14,11 @@ const BannerLogin = () => {
   const [pw, setPw] = useState<String>();
 
   const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setId('');
+    setPw('');
+    setShow(false);
+  }
   const handleKeyPress = (e) => {
     if (e.key == "Enter") {
       handleLogin();
@@ -27,7 +31,7 @@ const BannerLogin = () => {
   const handleChangePw = (e) => {
     setPw(e.target.value);
   };
-  const handleLogin = () =>
+  const handleLogin = () => {
     axios
       .post(`${API}`, {
         id: id,
@@ -41,8 +45,14 @@ const BannerLogin = () => {
             timer: 1000,
           });
           setTimeout(() => {
-            setShow(false);
+            window.location.reload();
           }, 1000);
+          cookies.set("accessToken", Response.data.data.accessToken, {
+            expires: 1 / 24,
+          });
+          cookies.set("refreshToken", Response.data.data.refreshToken, {
+            expires: 30,
+          });
         } else {
           swal.fire({
             icon: "error",
@@ -50,17 +60,15 @@ const BannerLogin = () => {
             timer: 1000,
           });
         }
-        cookies.set("accessToken", Response.data.data.accessToken, { expires: 1 });
-        cookies.set("refreshToken", Response.data.data.refreshToken, { expires: 24 * 30})
       })
       .catch((error) => {
-        console.log(error);
         swal.fire({
           icon: "warning",
           title: "아이디와 비밀번호를 모두 입력해주세요",
           timer: 1000,
         });
       });
+  };
 
   return (
     <>

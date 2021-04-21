@@ -1,12 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import cookies from 'js-cookie'
 import "./Banner.module.scss";
 import BannerLogin from "./BannerLogin/BannerLogin";
 import BannerSearch from "./BannerSearch/BannerSearch";
 
 const Banner = () => {
   const [item, setItem] = useState<number>();
+  const [info, setInfo] = useState<Object>();
+  if (cookies.get('accessToken') != null) {
+      
+  }
   useEffect(() => {
     setItem(50);
   }, []);
@@ -16,7 +21,8 @@ const Banner = () => {
       <div className="Banner">
         <div className="Banner-Top">
           <div className="Banner-Home">Make Anything</div>
-          <BannerLogin />
+          <BannerLogin/>
+          {/* {isLoggedIn ? <BannerUser/> : <BannerLogin />} */}
         </div>
 
         <div className="Banner-Middle">
