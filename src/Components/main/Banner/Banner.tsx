@@ -7,7 +7,7 @@ import BannerLogin from "./BannerLogin/BannerLogin";
 import BannerSearch from "./BannerSearch/BannerSearch";
 import { customAxios } from "../../../lib/customAxios";
 import BannerUser from "./BannerUser/BannerUser";
-import { initialUserState, IUser } from "../interface/IUser";
+import { initialUserState, IUser } from "../../../interface/IUser";
 
 const Banner = () => {
   const [item, setItem] = useState<number>();

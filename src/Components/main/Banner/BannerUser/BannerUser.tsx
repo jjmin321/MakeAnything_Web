@@ -1,5 +1,5 @@
 import react from 'react'
-import { IUser } from '../../interface/IUser';
+import { IUser } from '../../../../interface/IUser';
 
 interface IBannerUser  {
     info: IUser;
