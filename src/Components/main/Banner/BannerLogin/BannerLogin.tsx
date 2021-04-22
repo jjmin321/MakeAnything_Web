@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import axios from "axios";
 import swal from "sweetalert2";
 import cookies from "js-cookie";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BannerLogin.module.scss";
-
-const API = "http://localhost:8080/user/signIn";
+import { customAxios } from "../../../../lib/customAxios";
 
 const BannerLogin = () => {
   const [show, setShow] = useState(false);
@@ -32,8 +30,8 @@ const BannerLogin = () => {
     setPw(e.target.value);
   };
   const handleLogin = () => {
-    axios
-      .post(`${API}`, {
+    customAxios
+      .post("/user/signIn", {
         id: id,
         pw: pw,
       })
