@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
-import cookies from 'js-cookie';
 import { checkJwt,checkJwtHandle } from './checkJwt';
+import  {SERVER} from "../config/config.json"
 
-export const SERVER_ADDRESS = "http://localhost:8080"
+export const SERVER_ADDRESS = SERVER
 
 const customAxios: AxiosInstance = axios.create({
   baseURL: `${SERVER_ADDRESS}`
