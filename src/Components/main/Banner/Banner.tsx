@@ -6,21 +6,23 @@ import "./Banner.module.scss";
 import BannerLogin from "./BannerLogin/BannerLogin";
 import BannerSearch from "./BannerSearch/BannerSearch";
 import { customAxios } from "../../../lib/customAxios";
+import BannerUser from "./BannerUser/BannerUser";
+import { initialUserState, IUser } from "../interface/IUser";
 
 const Banner = () => {
   const [item, setItem] = useState<number>();
-  const [info, setInfo] = useState<Object>(null);
+  const [info, setInfo] = useState<IUser>(initialUserState);
   useEffect(() => {
     setItem(50);
   }, []);
   useLayoutEffect(() => {
-    customAxios.get("/user/getInfo").then((Response) => {
-      if (Response.data.status == 200) {
-        setInfo(Response.data.data);
-      } else {
-        // 리프레시 토큰으로 액세스 토큰 갱신 (근데 그거도 403이면 아무것도 안함)
-      }
-    });
+    const func = async () => {
+      await customAxios.get("/user/getInfo").then(({ data }) => {
+        setInfo(data.data);
+      });
+    };
+
+    func();
   }, []);
 
   return (
