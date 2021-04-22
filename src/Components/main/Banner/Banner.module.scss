@@ -4,6 +4,9 @@
     height: 30vh;
     background-image: url("/assets/images/banner.png");
     &-Top {
+        @media screen and (max-height: 470px) {
+            display: none;
+        }
         display: flex;
         justify-content: space-between;
         padding: 1rem;
@@ -28,15 +31,21 @@
             @media screen and (max-width: 878px) {
                 font-size: 0.75rem;
             }
+            @media screen and (max-height: 720px) {
+                display: none;
+            }
             font-size: 1rem;
-            margin-bottom: 1rem;
+            // margin-bottom: 1rem;
         }
         &-Title {
             @media screen and (max-width: 878px) {
                 font-size: 1rem;
             }
+            @media screen and (max-height: 600px) {
+                display: none;
+            }
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         &-Search {
             @media screen and (max-width: 878px) {
@@ -49,6 +58,7 @@
             border-radius: 0.5rem;
             align-items: center;
             padding: 1rem;
+            margin-top: 1rem;
             margin-bottom: 5rem;
             &-Text {
                 width: 90%;
