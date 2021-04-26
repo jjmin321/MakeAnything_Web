@@ -29,7 +29,7 @@ const Banner = () => {
     <>
       <div className="Banner">
         <div className="Banner-Top">
-          <div className="Banner-Home">Make Anything</div>
+          <div className="Banner-Home" onClick={() => window.location.reload()}>Make Anything</div>
           {info == null ? <BannerLogin /> : <BannerUser info={info} />}
         </div>
 
