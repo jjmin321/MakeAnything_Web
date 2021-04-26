@@ -23,7 +23,7 @@ const BannerUser = ({ info }: IBannerUser) => {
         <Dropdown.Menu className="dropdown-menu.show">
           <Dropdown.Item href="#/action-1">내 정보</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item href="#/action-2">로그아웃</Dropdown.Item>
+          <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </>
