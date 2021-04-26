@@ -21,7 +21,9 @@ const BannerUser = ({ info }: IBannerUser) => {
         <Button variant="info">{info.name}</Button>
         <Dropdown.Toggle split variant="success" />
         <Dropdown.Menu className="dropdown-menu.show">
-          <Dropdown.Item href="#/action-1">내 정보</Dropdown.Item>
+          <Dropdown.Item>내 정보</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item>+ 물품 등록</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item onClick={handleLogout}>로그아웃</Dropdown.Item>
         </Dropdown.Menu>
