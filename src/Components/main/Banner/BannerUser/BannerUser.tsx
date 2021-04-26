@@ -17,27 +17,15 @@ const BannerUser = ({ info }: IBannerUser) => {
 
   return (
     <>
-      <Dropdown as={ButtonGroup} className="dropdown">
-        <Button variant="info">손민</Button>
+      <Dropdown as={ButtonGroup}>
+        <Button variant="info">{info.name}</Button>
         <Dropdown.Toggle split variant="success" />
-        <Dropdown.Menu>
+        <Dropdown.Menu className="dropdown-menu.show">
           <Dropdown.Item href="#/action-1">내 정보</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item href="#/action-2">로그아웃</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-
-      {/* <DropdownButton
-        as={ButtonGroup}
-        drop="left"
-        variant="info"
-        title={info.name}
-        className="dropleft"
-      >
-        <Dropdown.Item href="#/action-1">내 정보</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item href="#/action-2">로그아웃</Dropdown.Item>
-      </DropdownButton> */}
     </>
   );
 };
