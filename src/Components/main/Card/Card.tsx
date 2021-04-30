@@ -62,7 +62,7 @@ const Card = () => {
         </div>
       </div>
       <div className="Card">
-      {customItem.length > 0 &&
+        {customItem.length > 0 &&
           customItem.map((item: IItem, index: number) => (
             <CardItem key={index} item={item} />
           ))}

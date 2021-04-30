@@ -1,5 +1,5 @@
 .Card {
-    @media screen and (max-width: 878px) {
+    @media screen and (max-width: 500px) {
         flex-direction: column;
     }
     display:flex;
@@ -12,7 +12,6 @@
         justify-content: space-between;
         &-Start {
             display: flex;
-            color: gray;
             margin-left: 1rem;
         }
         &-End {
@@ -21,12 +20,30 @@
         }
     }
     &-Item {
-        @media screen and (max-width: 878px) {
+        @media screen and (max-width: 500px) {
+            height: 30vh;
             width: 100%;
             margin-bottom: 1rem;
         }
-        height: 18vh;
-        width: 15vw;
-        border-radius: 0.5rem;
+        height: 45vh;
+        width: 18vw;
+        &-Thumbnail {
+            @media screen and (max-width: 500px) {
+                width: 100%;
+            }
+            display: flex;
+            border-radius: 0.5rem;
+            border: 1rem;
+            height: 20vh;
+            width: 18vw;
+        }
+        &-UserName {
+            color: gray;
+            font-size: 0.8rem !important;
+            margin-top: 1vh;
+        }
+        &-Name {
+            margin-top: 1vh;
+        }
     }
 }
