@@ -4,9 +4,6 @@
     height: 30vh;
     background-image: url("/assets/images/banner.png");
     &-Top {
-        @media screen and (max-height: 470px) {
-            display: none;
-        }
         display: flex;
         justify-content: space-between;
         padding: 1rem;
@@ -31,7 +28,7 @@
             @media screen and (max-width: 878px) {
                 font-size: 0.75rem;
             }
-            @media screen and (max-height: 720px) {
+            @media screen and (max-height: 700px) {
                 display: none;
             }
             font-size: 1rem;
@@ -41,7 +38,7 @@
             @media screen and (max-width: 878px) {
                 font-size: 1rem;
             }
-            @media screen and (max-height: 600px) {
+            @media screen and (max-height: 620px) {
                 display: none;
             }
             font-size: 1.5rem;
