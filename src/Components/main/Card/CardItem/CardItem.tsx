@@ -14,7 +14,7 @@ const CardItem = ({ item }: { item: IItem }) => {
         />
         <div>
           <div className="Card-Item-UserName">{item.user.name}</div>
-          <div>{`${addComma(item.price)}원`}</div>
+          <div className="Card-Item-Price">{`${addComma(item.price)}원`}</div>
         </div>
         <div className="Card-Item-Name">{item.name}</div>
       </div>

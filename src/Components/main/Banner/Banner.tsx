@@ -10,11 +10,7 @@ import BannerUser from "./BannerUser/BannerUser";
 import { initialUserState, IUser } from "../../../interface/IUser";
 
 const Banner = () => {
-  const [item, setItem] = useState<number>();
   const [info, setInfo] = useState<IUser>(initialUserState);
-  useEffect(() => {
-    setItem(50);
-  }, []);
   useLayoutEffect(() => {
     const func = async () => {
       await customAxios.get("/user/getInfo").then(({ data }) => {
@@ -32,11 +28,7 @@ const Banner = () => {
           <div className="Banner-Home" onClick={() => window.location.reload()}>Make Anything</div>
           {info == null ? <BannerLogin /> : <BannerUser info={info} />}
         </div>
-
         <div className="Banner-Middle">
-          <div className="Banner-Middle-Text">
-            총 {item}개의 상품이 등록되어 있습니다!
-          </div>
           <div className="Banner-Middle-Title">
             나만의 재능을 상품으로, Make Anything
           </div>
