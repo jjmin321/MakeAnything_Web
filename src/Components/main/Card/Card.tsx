@@ -9,7 +9,7 @@ const Card = () => {
 
   useLayoutEffect(() => {
     const func = async () => {
-      await customAxios.get("/item/getAllItemsDesc").then(({ data }) => {
+      await customAxios.get("/item/getCustomItems").then(({ data }) => {
         setItem(data.data);
       });
     };
