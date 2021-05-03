@@ -4,8 +4,6 @@
     }
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 1rem;
     background-color:rgb(236, 231, 231);
     &-Item {
         background-color: white;
@@ -17,6 +15,8 @@
         height: 40vh;
         width: 18vw;
         margin-top: 3vh;
+        margin-left: 1vw;
+        margin-right: 1vw;
         &-Thumbnail {
             width: 100% !important;
             border: 1rem;

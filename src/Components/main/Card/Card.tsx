@@ -5,16 +5,12 @@ import "./Card.module.scss";
 import CardItem from "./CardItem/CardItem";
 
 const Card = () => {
-  const [talentItem, setTalentItem] = useState<Array<IItem>>([]);
-  const [usedItem, setUsedItem] = useState<Array<IItem>>([]);
-  const [customItem, setCustomItem] = useState<Array<IItem>>([]);
+  const [Item, setItem] = useState<Array<IItem>>([]);
 
   useLayoutEffect(() => {
     const func = async () => {
-      await customAxios.get("/item/getRecentItems").then(({ data }) => {
-        setTalentItem(data.data.TALENT);
-        setUsedItem(data.data.USED);
-        setCustomItem(data.data.CUSTOM);
+      await customAxios.get("/item/getAllItemsDesc").then(({ data }) => {
+        setItem(data.data);
       });
     };
     func();
@@ -23,26 +19,8 @@ const Card = () => {
   return (
     <>
       <div className="Card">
-        {talentItem.length > 0 &&
-          talentItem.map((item: IItem, index: number) => (
-            <CardItem key={index} item={item} />
-          ))}
-          {usedItem.length > 0 &&
-          usedItem.map((item: IItem, index: number) => (
-            <CardItem key={index} item={item} />
-          ))}
-      </div>
-      
-      <div className="Card">
-        {usedItem.length > 0 &&
-          usedItem.map((item: IItem, index: number) => (
-            <CardItem key={index} item={item} />
-          ))}
-      </div>
-      
-      <div className="Card">
-        {customItem.length > 0 &&
-          customItem.map((item: IItem, index: number) => (
+        {Item.length > 0 &&
+          Item.map((item: IItem, index: number) => (
             <CardItem key={index} item={item} />
           ))}
       </div>
