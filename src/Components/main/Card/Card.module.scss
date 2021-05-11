@@ -13,7 +13,7 @@
         }
         height: 40vh;
         width: 18vw;
-        margin-top: 3vh;
+        margin-top: 1vh;
         margin-left: 1vw;
         margin-right: 1vw;
         &-Thumbnail {
@@ -39,4 +39,20 @@
             border-top: 0.1rem solid transparent;
         }
     }
+}
+
+.sort {
+    display: block !important;
+    text-align: end !important;
+    margin-top: 1vh;
+    margin-right: 5vw;
+}
+
+.ui.dropdown .menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown .icon {
+    display: none;
 }
