@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment"
 import { IItem } from "../../../../interface/IItem";
 import { addComma } from "../../../../lib/addComma";
 import { SERVER_ADDRESS } from "../../../../lib/customAxios";
@@ -15,6 +16,7 @@ const CardItem = ({ item }: { item: IItem }) => {
         <div>
           <div className="Card-Item-UserName">{item.user.name}</div>
           <div className="Card-Item-Price">{`${addComma(item.price)}원`}</div>
+          <div>{moment(item.createdAt).format('YYYY-MM-DD HH:MM')}</div>
         </div>
         <div className="Card-Item-Name">{item.name}</div>
       </div>
