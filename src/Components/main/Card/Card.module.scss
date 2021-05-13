@@ -22,21 +22,34 @@
             height: 20vh;
             width: 18vw;
         }
-        &-UserName {
+        &-Header {
+            display: flex;
+            justify-content: space-between;
             color: gray;
-            font-size: 0.8rem !important;
-            margin-left: 0.375rem;
-            margin-top: 1vh;
+            margin-top: 0.5vh;
+            &-UserName {
+                display: flex;
+                color: gray;
+                margin-left: 5px;
+                
+            }
+            &-CreatedAt {
+                display: flex;
+                color: gray;
+                font-size: 0.9rem !important;
+                margin-right: 5px;
+            }
         }
         &-Price {
-            font-size: 0.9rem !important;
-            margin-left: 0.375rem;
+            font-size: 0.9rem;
+            margin-left: 5px;
+            border-bottom: 0.1rem solid rgb(236, 231, 231);
         }
-        &-Name {
-            padding: 0.375rem;
-            font-size: 0.8rem !important;
+        &-Body {
+            margin-top: 1vh;
+            margin-left: 5px; 
             line-height: 1rem;
-            border-top: 0.1rem solid transparent;
+            
         }
     }
 }
