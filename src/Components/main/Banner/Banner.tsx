@@ -11,7 +11,7 @@ import { initialUserState, IUser } from "../../../interface/IUser";
 
 const Banner = () => {
   const [info, setInfo] = useState<IUser>(initialUserState);
-  useLayoutEffect(() => {
+  useEffect(() => {
     const func = async () => {
       await customAxios.get("/user/getInfo").then(({ data }) => {
         setInfo(data.data);

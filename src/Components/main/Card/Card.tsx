@@ -1,4 +1,4 @@
-import { React, useState, useLayoutEffect, ChangeEvent } from "react";
+import { React, useState, useEffect, ChangeEvent } from "react";
 import { Dropdown } from "semantic-ui-react";
 import { IItem, initialItemState } from "../../../interface/IItem";
 import { customAxios } from "../../../lib/customAxios";
@@ -16,7 +16,7 @@ const Card = () => {
     });
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const func = async () => {
       await customAxios.get("/item/getAllItemsByPrice").then(({ data }) => {
         setItem(data.data);
