@@ -30,9 +30,9 @@ const Banner = () => {
         </div>
         <div className="Banner-Middle">
           <div className="Banner-Middle-Title">
-            <span className="subText">나만의 재능을 상품으로</span>
-            <span className="light">Make Anything</span>
-            <span className="subText">지금 바로 사작해보세요!</span>
+            <h4 className="subText">나만의 재능을 상품으로</h4>
+            <h4 className="light">Make Anything</h4>
+            <h4 className="subText">지금 바로 사작해보세요!</h4>
           </div>
           <BannerSearch />
         </div>

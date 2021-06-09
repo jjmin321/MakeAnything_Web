@@ -59,8 +59,8 @@
     justify-content: flex-end;
     &-Dropdown {
         display: flex;
-        border-color: white;
-        border: 1;
+        border-style: dashed;
+        border-color: purple;
         border-radius: 5px;
         margin-top: 1vh;
         margin-right: 3vw;

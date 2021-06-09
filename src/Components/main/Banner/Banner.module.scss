@@ -1,19 +1,19 @@
-span {
+h4 {
   display: block;
 }
 
-span:not(.light) {
+h4:not(.light) {
   opacity: 0;
   animation: flashText 0.5s ease-out alternate infinite;
 }
 
-span.subText {
+h4.subText {
     @media screen and (max-height: 620px) {
         display: none;
     }
 }
 
-span.light {
+h4.light {
   position: relative;
   display: inline-block;    
   font-size: 2rem;
